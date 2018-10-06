@@ -5,10 +5,10 @@
 [![Build Status][ico-travis]][link-travis]
 [![Quality Score][ico-scrutinizer]][link-scrutinizer]
 
-Middleware to rewrite the path, query and fragment from the uri path of the request.
-It require an array of rules that are evaluated in sequence.
-A rule is a two position array: array[0] is the pattern (internally translated in #?$pattern$# and
-array[1] is the replacement according php function preg_replace.
+Simple Middleware to rewrite the path, the query and the fragment of the an http request uri.
+It requires an array of rules that are evaluated in sequence.
+A rule is a two position array: array[0] is the regexp pattern to search (internally translated in #^$pattern$# and
+array[1] is the replacement according the php function *preg_replace*.
 
 Inspired from [middlewares/base-path](https://github.com/middlewares/base-path)
 
@@ -32,8 +32,8 @@ composer require linkeddatacenter/url-rewriter
 $dispatcher = new Dispatcher([
 	new Middlewares\BasePath([
 	[
-	    '/(\w+)' => '/$1/list',
-	    '/(\w+)/document/(\w+)/(\w+).(csv|json|xml)\??(.*)' =>'/$1/store?uri=urn:store:$2:$3&format=$4&$5',  
+            '/(\w+)' => '/$1/pluto',
+            '/(\w+)/(\w+)/(\w+).(csv|json|xml)(.*)' =>'/$1/docstore?db=$2&table=$3&format=$4$5',
 	])
 ]);
 
