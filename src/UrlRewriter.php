@@ -14,7 +14,7 @@ class UrlRewriter implements MiddlewareInterface
 { 
     
     /**
-     * @var bool Whether or not add the base path to the Location header if exists
+     * @var array of rules to be executed on Response uri
      */
     private $rules;
     
