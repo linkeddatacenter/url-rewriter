@@ -50,9 +50,8 @@ rule := array [ <pattern>, <replace> ]
 ## Test with docker
 
 ```bash
-docker run --rm -ti -v $PWD/.:/app composer bash
-composer install
-vendor/bin/phpunit
+docker run --rm -ti -v $PWD/.:/app composer composer install
+docker run --rm -ti -v $PWD/.:/app composer vendor/bin/phpunit
 ```
 
 ---
