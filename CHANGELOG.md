@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - update composer.json
 - using php 7.3 in travis and scrutinizer
+- used php 7 null coalescing operator
 
 ## 0.1.0 
 

@@ -49,9 +49,9 @@ class UrlRewriter implements MiddlewareInterface
         $parsedNewUrl = parse_url($invariantUriPart.$replacedUriPart );
         
         $request = $request->withUri(
-            $uri->withPath($parsedNewUrl['path']?:'')
-            ->withQuery($parsedNewUrl['query']?:'')
-            ->withFragment($parsedNewUrl['fragment']?:'')
+            $uri->withPath($parsedNewUrl['path'] ?? '')
+            ->withQuery($parsedNewUrl['query'] ?? '')
+            ->withFragment($parsedNewUrl['fragment'] ?? '')
         );
         
         return $handler->handle($request);
